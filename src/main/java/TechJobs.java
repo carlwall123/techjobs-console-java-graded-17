@@ -10,7 +10,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -25,7 +25,8 @@ public class TechJobs {
         actionChoices.put("search", "Search");
         actionChoices.put("list", "List");
 
-        System.out.println("Welcome to LaunchCode's TechJobs App!");
+        System.out.println("Welcome to LaunchCode's TechJobs App! \n");
+        System.out.println("*** All Location Values ***\nKansas City\nNew York\nPortland\nRhode Island\nSaint Louis\nSeattle\nSouth Florida\n");
 
         // Allow the user to search until they manually quit
         while (true) {
@@ -112,14 +113,30 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
+    //*
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.isEmpty()) {
+            System.out.println("No Jobs found.");
+            return;
+        }
+        for (HashMap<String, String> job : someJobs) {
+            System.out.println("*****");
+
+            for (Map.Entry<String, String> entry : job.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                System.out.println( key + ":" + value );
+
+            }
+            System.out.println("***** \n");
+        }
     }
+
 }
